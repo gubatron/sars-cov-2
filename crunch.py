@@ -1,6 +1,7 @@
 import csv
 import datetime
 import math
+import os
 
 """
 John Hopkins University COVID-19 Daily US Confirmed cases aggregator.
@@ -41,6 +42,9 @@ def daily_numbers(month, date, year, country):
   confirmed=0
   dead=0
   file_name = 'data/' + zero_pad(month) + '-' + zero_pad(date) + '-' + zero_pad(year) + '.csv'
+  if not os.path.exists(file_name):
+    print("Warning: No data file for {0}-{1}-{1}".format(zero_pad(month), zero_pad(date), year))
+    return (None,None)
   with open(file_name, newline='') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     for row in reader:
@@ -65,6 +69,8 @@ def monthly_numbers(results, month, country):
   prev_confirmed = 0
   for day in range(start_day, end_day):
     confirmed, dead =  daily_numbers(month, day, 2020, country)
+    if confirmed == None and dead == None:
+      continue
     k=0
     if prev_confirmed == 0 and len(results) > 0:
       last_record = results[-1]
