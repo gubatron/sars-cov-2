@@ -1,5 +1,7 @@
 # COVID-19 Daily US data aggregator
 
+<img src="data/screenshot.png"/>
+
 John Hopkins University COVID-19 daily confirmed and dead are granularly reported by county or state.
 
 Maybe it's just me, but I like to see the whole picture for the United States.
