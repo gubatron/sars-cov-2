@@ -81,14 +81,13 @@ def monthly_numbers(results, month, country):
       prev_confirmed = confirmed
     r = record('{0}-{1}-2020'.format(zero_pad(month), zero_pad(day)), month, day, 2020, confirmed, dead, k) 
     results.append(r)
-  return (results, confirmed, dead)
 
 country='US'
 confirmed = 0
 dead = 0
 results = []
 for month in range(2,4):
-  (results, confirmed, dead) = monthly_numbers(results, month, country)
+  monthly_numbers(results, month, country)
 
 print('Date,Confirmed,Dead,K')
 for r in results:
