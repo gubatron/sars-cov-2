@@ -82,13 +82,21 @@ def monthly_numbers(results, month, country):
     r = record('{0}-{1}-2020'.format(zero_pad(month), zero_pad(day)), month, day, 2020, confirmed, dead, k) 
     results.append(r)
 
-country='US'
-confirmed = 0
-dead = 0
-results = []
-for month in range(2,4):
-  monthly_numbers(results, month, country)
+def crunch_country_report(country):
+  confirmed = 0
+  dead = 0
+  results = []
+  for month in range(2,4):
+    monthly_numbers(results, month, country)
+  filename = 'output_' + country + '.csv'
+  with open(filename,'w') as output:
+    output.write('Date,Confirmed,Dead,K\n')
+    for r in results:
+      output.write(str(r))
+      output.write('\n')
+  print('Done with ' + filename)
 
-print('Date,Confirmed,Dead,K')
-for r in results:
-  print(r)
+if __name__ == '__main__':
+  countries=['US','Spain','Italy']
+  for country in countries:
+    crunch_country_report(country)
