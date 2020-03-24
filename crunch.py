@@ -58,6 +58,9 @@ def daily_numbers(month, date, year, country):
   return (confirmed, dead)
 
 def monthly_numbers(results, month, country):
+  global COUNTRY
+  global CONFIRMED
+  global DEAD
   start_day=1
   end_day=32
   if month == 1:
@@ -68,6 +71,11 @@ def monthly_numbers(results, month, country):
     end_day = min(32, datetime.datetime.today().day+1)
   prev_confirmed = 0
   for day in range(start_day, end_day):
+    if month >= 3 and day >= 23 and COUNTRY==1:
+      # new fields were added on 03-23-2020
+      COUNTRY=3
+      CONFIRMED=7
+      DEAD=8
     confirmed, dead =  daily_numbers(month, day, 2020, country)
     if confirmed == None and dead == None:
       continue
