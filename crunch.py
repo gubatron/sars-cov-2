@@ -107,4 +107,7 @@ def crunch_country_report(country):
 if __name__ == '__main__':
   countries=['US','Spain','Italy']
   for country in countries:
+    COUNTRY=1
+    CONFIRMED=3
+    DEAD=4
     crunch_country_report(country)
