@@ -71,7 +71,7 @@ def monthly_numbers(results, month, country):
     end_day = min(32, datetime.datetime.today().day+1)
   prev_confirmed = 0
   for day in range(start_day, end_day):
-    if month >= 3 and day >= 23 and COUNTRY==1:
+    if month >= 3 and day >= 22 and COUNTRY==1:
       # new fields were added on 03-23-2020
       COUNTRY=3
       CONFIRMED=7
