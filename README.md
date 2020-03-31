@@ -10,7 +10,7 @@ This will add up all the numbers from each daily .csv and then print an output c
 
 This way you can easily graph a time series of the total daily confirmed cases and total deaths in the US.
 
-It will also calculate a confirmed cases K (acceleration) to plug into exponential or logistic functions on the last column.
+It will also calculate dead acceleration (K, period=7) to plug into exponential or logistic functions on the last column.
 
 CSV Data has been obtained from Johns Hopkins University (JHU) Gitlab Repo:
 https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_daily_reports

@@ -43,7 +43,7 @@ def daily_numbers(month, date, year, country):
   dead=0
   file_name = 'data/' + zero_pad(month) + '-' + zero_pad(date) + '-' + zero_pad(year) + '.csv'
   if not os.path.exists(file_name):
-    print("Warning: No data file for {0}-{1}-{1}".format(zero_pad(month), zero_pad(date), year))
+    print("Warning: No data file for {0}-{1}-{2}".format(zero_pad(month), zero_pad(date), year))
     return (None,None)
   with open(file_name, newline='') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
@@ -69,7 +69,7 @@ def monthly_numbers(results, month, country):
     end_day = 30
   if month == 3:
     end_day = min(32, datetime.datetime.today().day+1)
-  prev_confirmed = 0
+  prev_dead = 0
   for day in range(start_day, end_day):
     if month >= 3 and day >= 22 and COUNTRY==1:
       # new fields were added on 03-23-2020
@@ -80,13 +80,15 @@ def monthly_numbers(results, month, country):
     if confirmed == None and dead == None:
       continue
     k=0
-    if prev_confirmed == 0 and len(results) > 0:
-      last_record = results[-1]
-      prev_confirmed = last_record.confirmed
+    k_period=7
+    if len(results) > k_period:
+      last_record = results[-(k_period+1)]
+      prev_dead = last_record.dead
 
-    if confirmed > 0 and prev_confirmed > 0:
-      k = math.log(confirmed/prev_confirmed)
-      prev_confirmed = confirmed
+    if confirmed > 0 and prev_dead > 0:
+      k = math.log(dead/prev_dead)/k_period
+      print("day={0} results[-8] -> prev_dead={1} dead={2} k={3} log({4}/{5})/7".format(day, prev_dead, dead, k, prev_dead, dead))
+
     r = record('{0}-{1}-2020'.format(zero_pad(month), zero_pad(day)), month, day, 2020, confirmed, dead, k) 
     results.append(r)
 
