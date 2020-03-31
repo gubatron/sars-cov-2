@@ -2,13 +2,13 @@
 
 <img src="data/screenshot.png"/>
 
-John Hopkins University COVID-19 daily confirmed and dead are granularly reported by county or state.
+John Hopkins University COVID-19 daily dead are granularly reported by county or state.
 
 Maybe it's just me, but I like to see the whole picture for the United States.
 
 This will add up all the numbers from each daily .csv and then print an output csv to stdout.
 
-This way you can easily graph a time series of the total daily confirmed cases and total deaths in the US.
+This way you can easily graph a time series of the total deaths in the US.
 
 It will also calculate dead acceleration (K, period=7) to plug into exponential or logistic functions on the last column.
 
