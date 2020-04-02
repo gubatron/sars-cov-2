@@ -1,3 +1,4 @@
+import calendar
 import csv
 import datetime
 import math
@@ -54,14 +55,10 @@ def daily_numbers(month, date, year, country):
 def monthly_numbers(results, month, country):
   global COUNTRY
   global DEAD
-  start_day=1
-  end_day=32
+  start_day = 1
+  end_day = calendar.monthrange(2020, month)[1] + 1
   if month == 1:
     start_day=22
-  if month == 2:
-    end_day = 30
-  if month == 3:
-    end_day = min(32, datetime.datetime.today().day+1)
   prev_dead = 0
   for day in range(start_day, end_day):
     if month >= 3 and day >= 22 and COUNTRY==1:
@@ -87,7 +84,7 @@ def monthly_numbers(results, month, country):
 def crunch_country_report(country):
   dead = 0
   results = []
-  for month in range(2,4):
+  for month in range(2,5):
     monthly_numbers(results, month, country)
   filename = 'output_' + country + '.csv'
   with open(filename,'w') as output:
