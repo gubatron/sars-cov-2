@@ -2,6 +2,8 @@
 
 <img src="data/screenshot.png"/>
 
+You can check my [US Data spreadsheet](https://docs.google.com/spreadsheets/d/1ClwG2FKio0xnAolBY6gnO1fMKWyXAqaqavL3EjkXA-s/edit?usp=sharing)
+
 John Hopkins University COVID-19 daily dead are granularly reported by county or state.
 
 Maybe it's just me, but I like to see the whole picture for the United States.
