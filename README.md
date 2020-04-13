@@ -1,6 +1,6 @@
 # COVID-19 Daily US data aggregator
 
-<img src="data/screenshot.png"/>
+<img src="data/screenshot_apr_13.png"/>
 
 You can check my [US Data spreadsheet](https://docs.google.com/spreadsheets/d/1ClwG2FKio0xnAolBY6gnO1fMKWyXAqaqavL3EjkXA-s/edit?usp=sharing)
 
