@@ -81,7 +81,7 @@ def monthly_numbers(results, month, country):
     
     if prev_k_dead > 0:
       k = math.log(dead/prev_k_dead)/k_period
-      print("day={0} results[-8] -> prev_k_dead={1} dead={2} k={3} log({4}/{5})/3 daily_dead={6}".format(day, prev_k_dead, dead, k, prev_k_dead, dead, daily_dead))
+      print("day={0} results[-4] -> prev_k_dead={1} dead={2} k={3} log({4}/{5})/3 daily_dead={6}".format(day, prev_k_dead, dead, k, prev_k_dead, dead, daily_dead))
 
     r = record('{0}-{1}-2020'.format(zero_pad(month), zero_pad(day)), month, day, 2020, dead, k, daily_dead)
     results.append(r)
